@@ -158,7 +158,7 @@ void setup() {
 
  
     Serial.println("Connecting...");
-    wifiManager.autoConnect("Fakiu=oksme","123456789");
+    wifiManager.autoConnect("Sistema de riego","123456789");
     Serial.println("Connected");
   
   
@@ -219,14 +219,14 @@ void loop() {
       lecturaHumidity = analogRead(HUMITY_PIN);
       statusHumidity= digitalRead(ESTATUS_HUMITY_PIN);
       temperature= readDataFromThings();
-      if(lecturaHumidity>2800 && temperature>17 && temperature<32){
+      if(lecturaHumidity>2800 && temperature>17 && temperature<30){
         
         digitalWrite(PIN_RELAY, LOW);
         estadoRiego="Se puede Regar";
         Serial.print("La lectura es: ");
         Serial.println(lecturaHumidity);
         Serial.println();
-        delay(10000);
+        delay(5000);
         //digitalWrite(PIN_RELAY, HIGH);
         
       }
